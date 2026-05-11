@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "task/14_price_table_endpoints.md",
+                "file": "design/api_spec.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "14_price_table_endpoints"
+              "title": "api_spec"
             }
           }
         ]
@@ -185,6 +185,16 @@
   },
   "active": "3769d5f3c8ca0bc8",
   "lastOpenFiles": [
+    "design/entities.md",
+    "design/manage_spec.md",
+    "design/mini_program_spec.md",
+    "task/27_library_tab_ui.md",
+    "task/28_me_tab_ui.md",
+    "task/30_mini_order_and_payment.md",
+    "task/35_english_md_ci_check.md",
+    "task/34_ci_pipeline.md",
+    "task/40_deployment_guide_vps.md",
+    "task/14_price_table_endpoints.md",
     "README.md",
     "sessions/2026-05-11_session_2.json",
     "deploy/single_vps.md",
@@ -200,9 +210,6 @@
     "task/02_add_dockerfile_and_compose.md",
     "task/01_create_backend_repo_scaffold.md",
     "low_level_design.md",
-    "design/mini_program_spec.md",
-    "design/manage_spec.md",
-    "design/entities.md",
     "design/api_spec.md"
   ]
 }

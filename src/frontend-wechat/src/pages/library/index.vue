@@ -1,120 +1,214 @@
 <template>
-  <section class="panel">
-    <div class="tag-row">
-      <button
-        v-for="c in categories"
-        :key="c.id"
-        :class="['tag', { active: selectedCategoryId === c.id }]"
-        @click="$emit('select-category', c.id)"
-      >
-        {{ c.name }}
-      </button>
-    </div>
+  <view class="page-shell library-page">
+    <scroll-view class="tag-row" scroll-x>
+      <view class="tag-track">
+        <button
+          v-for="category in categories"
+          :key="category.id"
+          :class="['tag', { active: selectedCategoryId === category.id }]"
+          @tap="selectCategory(category.id)"
+        >
+          {{ category.name }}
+        </button>
+      </view>
+    </scroll-view>
 
-    <div class="resource-grid" v-if="resources.length">
-      <article v-for="r in resources" :key="r.id" class="resource-card">
-        <img :src="r.thumbnail_url || placeholderImage" alt="thumb" class="resource-thumb" @click="$emit('preview-resource', r)" />
-        <h4 class="title">{{ r.title }}</h4>
-        <p class="meta">Pages: {{ r.page_count || '-' }}</p>
-        <button class="order-btn" :disabled="r.is_public === false" @click="$emit('create-from-resource', r)">Order</button>
-      </article>
-    </div>
+    <view class="box tip-card">
+      <text class="tip-title">精选资料库</text>
+      <text class="tip-desc">支持预览共享资料，确认后可直接下单打印。</text>
+    </view>
 
-    <div class="box empty" v-else>
-      <h4>No resources in this category</h4>
-      <p>Try switching category or add resources from admin.</p>
-    </div>
-  </section>
+    <view class="resource-list" v-if="resources.length">
+      <view v-for="resource in resources" :key="resource.id" class="resource-card">
+        <image class="resource-thumb" :src="resource.thumbnail_url || placeholderImage" mode="aspectFill" />
+        <view class="resource-body">
+          <view class="resource-top">
+            <text class="title">{{ resource.title }}</text>
+            <text class="resource-state">{{ resource.is_public === false ? '未开放' : '可打印' }}</text>
+          </view>
+          <text class="meta">{{ resource.page_count || '-' }} 页资料 · 支持在线预览</text>
+          <view class="resource-actions">
+            <button class="ghost-btn" @tap="previewResource(resource)">预览</button>
+            <button class="order-btn" :disabled="resource.is_public === false" @tap="createFromResource(resource)">立即下单</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="box empty" v-else>
+      <text class="empty-title">当前分类暂无资料</text>
+      <text class="empty-desc">可以切换分类查看，或者稍后再来。</text>
+    </view>
+  </view>
 </template>
 
-<script setup lang="ts">
-defineProps<{ categories: any[]; resources: any[]; selectedCategoryId?: number; placeholderImage: string }>();
-defineEmits(["select-category", "preview-resource", "create-from-resource"]);
+<script>
+import { useMiniStore } from '../../store/miniApp';
+
+const miniStore = useMiniStore();
+
+export default {
+  computed: {
+    categories() {
+      return miniStore.state.categories;
+    },
+    resources() {
+      return miniStore.state.resources;
+    },
+    selectedCategoryId() {
+      return miniStore.state.selectedCategoryId;
+    },
+    placeholderImage() {
+      return miniStore.placeholderImage;
+    }
+  },
+  onShow() {
+    miniStore.loadLibrary();
+  },
+  methods: {
+    selectCategory(categoryId) {
+      miniStore.selectCategory(categoryId);
+    },
+    previewResource(resource) {
+      miniStore.previewResource(resource);
+    },
+    createFromResource(resource) {
+      miniStore.createFromResource(resource);
+    }
+  }
+};
 </script>
 
 <style scoped>
-.tag-row {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
+.page-shell {
+  min-height: 100vh;
+  padding: calc(18px + env(safe-area-inset-top)) 16px 24px;
 }
 
-.tag {
-  border: 1px solid #dce4ef;
-  background: #fff;
-  color: #334155;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
+.library-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tag-row {
+  width: 100%;
   white-space: nowrap;
 }
 
-.tag.active {
-  background: linear-gradient(135deg, #0f766e, #0284c7);
-  border-color: transparent;
-  color: #fff;
+.tag-track {
+  display: inline-flex;
+  gap: 10px;
+  padding: 2px 2px 4px;
 }
 
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+.tag {
+  border: 0;
+  background: rgba(255, 255, 255, 0.72);
+  color: #5d5d5d;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  box-shadow: 0 8px 18px rgba(31, 83, 61, 0.08);
+}
+
+.tag.active {
+  background: linear-gradient(135deg, #16c98d, #6fe0b7);
+  color: #0f172a;
+}
+
+.box,
+.resource-card {
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 16px 34px rgba(31, 83, 61, 0.12);
+}
+
+.box {
+  padding: 18px;
+}
+
+.tip-title,
+.title,
+.empty-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tip-desc,
+.meta,
+.empty-desc {
+  display: block;
+  margin-top: 8px;
+  color: #8b8b8b;
+  line-height: 1.5;
+}
+
+.resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .resource-card {
-  background: #fff;
-  border: 1px solid #dce4ef;
-  border-radius: 12px;
-  padding: 10px;
-  display: grid;
-  gap: 8px;
+  display: flex;
+  gap: 14px;
+  padding: 14px;
 }
 
 .resource-thumb {
-  width: 100%;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 108px;
+  height: 124px;
+  border-radius: 20px;
+  flex-shrink: 0;
 }
 
-.title {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.35;
+.resource-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.meta {
-  margin: 0;
-  color: #64748b;
+.resource-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.resource-state {
+  align-self: flex-start;
+  border-radius: 999px;
+  background: rgba(17, 201, 140, 0.12);
+  color: #059669;
+  padding: 6px 10px;
   font-size: 12px;
+}
+
+.resource-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.ghost-btn,
+.order-btn {
+  margin: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 10px 16px;
+}
+
+.ghost-btn {
+  border: 1px solid #d6ddd8;
+  background: #ffffff;
+  color: #111827;
 }
 
 .order-btn {
   border: 0;
-  border-radius: 9px;
-  background: #0f766e;
-  color: #fff;
-  font-weight: 700;
-  padding: 8px 0;
-}
-
-.order-btn:disabled {
-  opacity: 0.45;
-}
-
-.empty h4 {
-  margin: 0;
-}
-
-.empty p {
-  margin: 8px 0 0;
-  color: #64748b;
-}
-
-@media (max-width: 360px) {
-  .resource-grid {
-    grid-template-columns: 1fr;
-  }
+  background: #11c98c;
+  color: #111827;
 }
 </style>

@@ -1,14 +1,55 @@
 {
-  "pages": [
-    { "path": "pages/home/index", "style": { "navigationBarTitleText": "Home" } },
-    { "path": "pages/library/index", "style": { "navigationBarTitleText": "Library" } },
-    { "path": "pages/me/index", "style": { "navigationBarTitleText": "Me" } }
-  ],
-  "tabBar": {
-    "list": [
-      { "pagePath": "pages/home/index", "text": "Home" },
-      { "pagePath": "pages/library/index", "text": "Library" },
-      { "pagePath": "pages/me/index", "text": "Me" }
-    ]
-  }
+	"pages": [
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationStyle": "custom",
+				"disableScroll": false
+			}
+		},
+		{
+			"path": "pages/library/index",
+			"style": {
+				"navigationStyle": "custom",
+				"disableScroll": false
+			}
+		},
+		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationStyle": "custom",
+				"disableScroll": false
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationStyle": "custom",
+		"backgroundColor": "#ffffff"
+	},
+	"tabBar": {
+		"color": "#9ca3af",
+		"selectedColor": "#10c78a",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
+				"text": "首页",
+				"iconPath": "static/tab/home.svg",
+				"selectedIconPath": "static/tab/home-active.svg"
+			},
+			{
+				"pagePath": "pages/library/index",
+				"text": "资料库",
+				"iconPath": "static/tab/library.svg",
+				"selectedIconPath": "static/tab/library-active.svg"
+			},
+			{
+				"pagePath": "pages/me/index",
+				"text": "我的",
+				"iconPath": "static/tab/me.svg",
+				"selectedIconPath": "static/tab/me-active.svg"
+			}
+		]
+	}
 }

@@ -1,0 +1,17 @@
+{
+  "name": "Cloud Print Mini",
+  "appid": "__UNI__CLOUD_PRINT",
+  "description": "Cloud print mini app built with uni-app.",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "touristappid",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true
+    },
+    "usingComponents": true
+  }
+}
