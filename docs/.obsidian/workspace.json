@@ -1,0 +1,208 @@
+{
+  "main": {
+    "id": "1f1593993a13a1da",
+    "type": "split",
+    "children": [
+      {
+        "id": "d269b6a518584eea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3769d5f3c8ca0bc8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "task/14_price_table_endpoints.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "14_price_table_endpoints"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "050fb8e7fc2c7325",
+    "type": "split",
+    "children": [
+      {
+        "id": "f7e7fc2b54c5d6cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "71fd98c32b899827",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "08206eb5e12d8e5a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "aa5dbacd3f61f4a8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dd8b7707c4d9322f",
+    "type": "split",
+    "children": [
+      {
+        "id": "fab1eb440338c7d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6f0daa5fb897b76d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "low_level_design.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for low_level_design"
+            }
+          },
+          {
+            "id": "7aaadbaaf8c390a3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "low_level_design.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from low_level_design"
+            }
+          },
+          {
+            "id": "13d641efcce9554d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "9067d73f04f762dd",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "4587fd9cb8f6e06f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "low_level_design.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of low_level_design"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "3769d5f3c8ca0bc8",
+  "lastOpenFiles": [
+    "README.md",
+    "sessions/2026-05-11_session_2.json",
+    "deploy/single_vps.md",
+    "deploy",
+    "task/13_presigned_download.md",
+    "task/12_get_files_endpoints.md",
+    "task/11_worker_thumbnail.md",
+    "task/10_file_complete.md",
+    "task/09_file_create_upload.md",
+    "task/06_add_user_model.md",
+    "task/05_alembic_init.md",
+    "task/03_health_endpoints.md",
+    "task/02_add_dockerfile_and_compose.md",
+    "task/01_create_backend_repo_scaffold.md",
+    "low_level_design.md",
+    "design/mini_program_spec.md",
+    "design/manage_spec.md",
+    "design/entities.md",
+    "design/api_spec.md"
+  ]
+}

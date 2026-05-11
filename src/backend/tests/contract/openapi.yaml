@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Cloud Print API
+  version: 0.1.0
+paths:
+  /health:
+    get:
+      responses:
+        "200":
+          description: ok
+  /v1/prices:
+    get:
+      responses:
+        "200":
+          description: price list
+  /v1/prices/tip:
+    get:
+      responses:
+        "200":
+          description: tip
+  /v1/library/categories:
+    get:
+      responses:
+        "200":
+          description: categories

@@ -1,0 +1,59 @@
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# Environment / secrets
+.env
+.env.*
+.env.local
+.venv/
+venv/
+**/.venv/
+.python-version
+
+# Node
+node_modules/
+
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and databases
+*.log
+*.db
+*.sqlite3
+
+# Coverage / test
+coverage/
+coverage.xml
+htmlcov/
+.coverage
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+dist-*/
+
+data/
+minio_data/
+mysql_data/
+redis_data/
+
+.DS_Store
+
+# Docker / build artifacts
+.docker/
+docker-compose.override.yml
+
+# Python packaging
+pip-wheel-metadata/
+*.egg-info/
+
+# temporary files
+*.pid
+*.sock
+Thumbs.db
